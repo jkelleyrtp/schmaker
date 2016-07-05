@@ -1,0 +1,499 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>schmaker</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="gcal.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+        ga('create', 'UA-74769859-1', 'auto');
+        ga('send', 'pageview');
+    
+    </script>
+    
+  </head>
+  <body>
+      <div id="header">schedulemaker for ncssm 2016-17</div>
+        <div id="main-wrap">
+            
+    <div id="content-wrap">
+    
+    Classes
+    <table id="coursetable" width="300" border="1" cellspacing="0" cellpadding="2">
+    <tr>
+      <td rowspan="2">Name</td>
+      <td rowspan="2">Block</td>
+      <td colspan="6">Pattern</td>
+      
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>L</td>
+    </tr>
+    <tr class="course">
+      <form class="courseForm">
+      <td><input type="text" class="name" /></td>
+      <td><select class="block" >
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+                <option>G</option>
+                <option>H</option>
+                <option>I</option>
+            </select>
+      </td>
+      <td><input class="pd" name="1" type="checkbox" /></td>
+      <td><input class="pd" name="2" type="checkbox" /></td>
+      <td><input class="pd" name="3" type="checkbox" /></td>
+      <td><input class="pd" name="4" type="checkbox" /></td>
+      <td><input class="pd" name="5" type="checkbox" /></td>
+      <td><input class="pd" name="L" type="checkbox" /></td>
+      <td><input class="color" type="color" value="#ffffff"/></td>
+      <td><a href="javascript:void(0)" class="rmCourse">remove</a></td>
+      </form>
+    </tr>
+    </table>
+    
+    <a href="javascript:void(0)" class="addCourse">add</a>
+    <a href="javascript:void(0)" class="clearCourse">clear</a>
+    
+    
+    <p>(conflicting periods are not accounted for)</p>
+    
+    <h>Trimester</h>
+    <select id="trimester" class="trimester">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+    <br /><br /><br />
+    
+    <div id="authorize-div" style="">
+      <!-- <span>Authorize access to Google Calendar API</span> -->
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="authorize-button" onclick="handleAuthClick(event)">
+        Authorize access to Google Calendar API
+      </button>
+    </div>
+    <div id="gcalendar-div" style="display:none">
+      <!-- <span>Create Google Calendar</span> -->
+      <!--Button for the user to click to initiate auth sequence -->
+      <button id="create-button" onclick="handleCreateGCalClick(event)">
+        Create Google Calendar
+      </button>
+    </div>
+    <pre id="gcalOutput"></pre>
+    
+    <div style="display:none">
+        <button id="mkIcs" onclick="">
+            create .ics (iCalendar) file
+        </button>
+    </div>
+    
+    
+    </div> <!-- end context wrap -->
+    
+        <div id="calendar-wrap">
+            
+    <table id="calendar1"> 
+    <tbody>
+    <tr>
+    <td colspan="3" valign="top" ><p><b>MONDAY</b></p></td>
+    <td colspan="3" valign="top" ><p><b>TUESDAY</b></p></td>
+    <td colspan="3" valign="top" ><p><b>WEDNESDAY</b></p></td>
+    <td colspan="3" valign="top" ><p><b>THURSDAY</b></p></td>
+    <td colspan="3" valign="top" ><p><b>FRIDAY</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td colspan="2" valign="top" ><p><b>TIME</b></p></td>
+    <td valign="top" > </td>
+    <td colspan="2" valign="top" ><p><b>TIME</b></p></td>
+    <td valign="top" > </td>
+    <td colspan="2" valign="top" ><p><b>TIME</b></p></td>
+    <td valign="top" > </td>
+    <td colspan="2" valign="top" ><p><b>TIME</b></p></td>
+    <td valign="top" > </td>
+    <td colspan="2" valign="top" ><p><b>TIME</b></p></td>
+    <td valign="top" > </td>
+    
+    </tr>
+    
+    <tr>
+    <td valign="top" ><p><b>1</b></p></td>
+    <td valign="top" > <p><b>8:00 to</b></p>
+    
+    <p><b>8:50</b></p></td>
+    <td valign="top" id="A1"><p><b>A1</b></p></td>
+    <td valign="top" ><p><b>1</b></p></td>
+    <td valign="top" > <p><b>8:00 to</b></p>
+    
+    <p><b>8:50</b></p></td>
+    <td valign="top" id="C2"><p><b>C2</b></p></td>
+    <td valign="top" ><p><b>1</b></p></td>
+    <td valign="top" > <p><b>8:00 to</b></p>
+    
+    <p><b>8:50</b></p></td>
+    <td valign="top" id="B3"><p><b>B3</b></p></td>
+    <td valign="top" ><p><b>1</b></p></td>
+    <td valign="top" > <p><b>8:00 to</b></p>
+    
+    <p><b>8:50</b></p></td>
+    <td valign="top" id="D4"><p><b>D4</b></p></td>
+    <td valign="top" ><p><b>1</b></p></td>
+    <td valign="top" > <p><b>8:00 to</b></p>
+        
+    <p><b>8:50</b></p></td>
+    <td valign="top" id="A5"><p><b>A5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td valign="top" ><p><b>2</b></p></td>
+    <td valign="top" > <p><b>8:55 to</b></p>
+    
+    <p><b>9:45</b></p></td>
+    <td valign="top" id="B1"><p><b>B1</b></p></td>
+    <td valign="top" ><p><b>2</b></p></td>
+    <td valign="top" > <p><b>8:55 to</b></p>
+    
+    <p><b>9:45</b></p></td>
+    <td valign="top" id="D2"><p><b>D2</b></p></td>
+    <td valign="top" ><p><b>2</b></p></td>
+    <td valign="top" > <p><b>8:55 to</b></p>
+    
+    <p><b>9:45</b></p></td>
+    <td valign="top" id="A3"><p><b>A3</b></p></td>
+    <td valign="top" ><p><b>2</b></p></td>
+    <td valign="top" > <p><b>8:55 to</b></p>
+    
+    <p><b>9:45</b></p></td>
+    <td valign="top" id="C4"><p><b>C4</b></p></td>
+    <td valign="top" ><p><b>2</b></p></td>
+    <td valign="top" > <p><b>8:55 to</b></p>
+    
+    <p><b>9:45</b></p></td>
+    <td valign="top" id="B5"><p><b>B5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td valign="top" ><p><b>3</b></p></td>
+    <td valign="top" > <p><b>9:50 to</b></p>
+    
+    <p><b>10:40</b></p></td>
+    <td valign="top" id="C1"><p><b>C1</b></p></td>
+    <td valign="top" ><p><b>3</b></p></td>
+    <td valign="top" > <p><b>9:50 to</b></p>
+    
+    <p><b>10:40</b></p></td>
+    <td valign="top" id="B2"><p><b>B2</b></p></td>
+    <td valign="top" ><p><b>3</b></p></td>
+    <td valign="top" > <p><b>9:50 to</b></p>
+    
+    <p><b>10:40</b></p></td>
+    <td valign="top" id="D3"><p><b>D3</b></p></td>
+    <td valign="top" ><p><b>3</b></p></td>
+    <td valign="top" > <p><b>9:50 to</b></p>
+    
+    <p><b>10:40</b></p></td>
+    <td valign="top" id="A4"><p><b>A4</b></p></td>
+    <td valign="top" ><p><b>3</b></p></td>
+    <td valign="top" > <p><b>9:50 to</b></p>
+    
+    <p><b>10:40</b></p></td>
+    <td valign="top" id="C5"><p><b>C5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td valign="top" ><p><b>4</b></p></td>
+    <td valign="top" > <p><b>10:45 to</b></p>
+    
+    <p><b>11:35</b></p></td>
+    <td valign="top" id="D1"><p><b>D1</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>4</b></p></td>
+    <td valign="top" > <p><b>10:45 to</b></p>
+    
+    <p><b>11:35</b></p></td>
+    <td valign="top" id="A2"><p><b>A2</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>4</b></p></td>
+    <td valign="top" > <p><b>10:45 to</b></p>
+    
+    <p><b>11:35</b></p></td>
+    <td valign="top" id="C3"><p><b>C3</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>4</b></p></td>
+    <td valign="top" > <p><b>10:45 to</b></p>
+    
+    <p><b>11:35</b></p></td>
+    <td valign="top" id="B4"><p><b>B4</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>4</b></p></td>
+    <td valign="top" > <p><b>10:45 to</b></p>
+    
+    <p><b>11:35</b></p></td>
+    <td valign="top" id="D5"><p><b>D5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td colspan="2" rowspan="2" valign="top" > <p><b>11:35 to</b></p>
+    
+    <p><b>12:30</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>LUNCH</b></p></td>
+    <td valign="top" ><p><b>to 12:15</b></p></td>
+    <td valign="top" id="AL"><p><b>A2 LAB</b></p></td>
+    <td valign="top" ><p><b>to 12:15</b></p></td>
+    <td valign="top" id="CL"><p><b>C3 LAB</b></p></td>
+    <td valign="top" ><p><b>to 12:15</b></p></td>
+    <td valign="top" id="BL"><p><b>B LAB</b></p></td>
+    <td valign="top" ><p><b>to 12:15</b></p></td>
+    <td valign="top" id="DL"><p><b>D5 LAB</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td colspan="2" rowspan="2" valign="top" > <p><b>12:15 to</b></p>
+    
+    <p><b>12:55</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>LUNCH</b></p></td>
+    <td colspan="2" rowspan="2" valign="top" > <p><b>12:15 to</b></p>
+    
+    <p><b>12:55</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>LUNCH</b></p></td>
+    <td colspan="2" rowspan="2" valign="top" > <p><b>12:15 to</b></p>
+    
+    <p><b>12:55</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>LUNCH</b></p></td>
+    <td colspan="2" rowspan="2" valign="top" > <p><b>12:15 to</b></p>
+    
+    <p><b>12:55</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>LUNCH</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" > </td>
+    <td rowspan="2" valign="top" > <p><b>12:30 to</b></p>
+    
+    <p><b>1:20</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>MEETING</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="3" valign="top" > <p><b>5</b></p></td>
+    <td valign="top" ><p><b>12:55 to</b></p></td>
+    <td valign="top" id="EL"><p><b>E2 LAB</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>5</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>12:55 to</b></p>
+    
+    <p><b>1:45</b></p></td>
+    <td rowspan="2" valign="top" id="G3"><p><b>G3</b></p></td>
+    <td rowspan="3" valign="top" > <p><b>5</b></p></td>
+    <td valign="top" ><p><b>12:55 to</b></p></td>
+    <td valign="top" id="FL"><p><b>F4 LAB</b></p></td>
+    <td rowspan="3" valign="top" > <p><b>5</b></p></td>
+    <td valign="top" ><p><b>12:55 to</b></p></td>
+    <td valign="top" id="GL"><p><b>G5 LAB</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" ><p><b>5</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>1:25 to</b></p>
+    
+    <p><b>2:15</b></p></td>
+    <td rowspan="2" valign="top" id="E1"><p><b>E1</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>1:35 to</b></p>
+    
+    <p><b>2:25</b></p></td>
+    <td rowspan="2" valign="top" id="E2"><p><b>E2</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>1:35 to</b></p>
+    
+    <p><b>2:25</b></p></td>
+    <td rowspan="2" valign="top" id="F4"><p><b>F4</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>1:35 to</b></p>
+    
+    <p><b>2:25</b></p></td>
+    <td rowspan="2" valign="top" id="G5"><p><b>G5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" ><p><b>6</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>1:50 to</b></p>
+    
+    <p><b>2:40</b></p></td>
+    <td rowspan="2" valign="top" id="E3"><p><b>E3</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" ><p><b>6</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>2:20 to</b></p>
+    
+    <p><b>3:10</b></p></td>
+    <td rowspan="2" valign="top" id="F1"><p><b>F1</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>6</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>2:30 to</b></p>
+    
+    <p><b>3:20</b></p></td>
+    <td rowspan="2" valign="top" id="G2"><p><b>G2</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>6</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>2:30 to</b></p>
+    
+    <p><b>3:20</b></p></td>
+    <td rowspan="2" valign="top" id="G4"><p><b>G4</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>6</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>2:30 to</b></p>
+    
+    <p><b>3:20</b></p></td>
+    <td rowspan="2" valign="top" id="F5"><p><b>F5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" ><p><b>7</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>2:45 to</b></p>
+    
+    <p><b>3:35</b></p></td>
+    <td rowspan="2" valign="top" id="F3"><p><b>F3</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td rowspan="2" valign="top" ><p><b>7</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>3:15 to</b></p>
+    
+    <p><b>4:05</b></p></td>
+    <td rowspan="2" valign="top" id="G1"><p><b>G1</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>7</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>3:25 to</b></p>
+    
+    <p><b>4:15</b></p></td>
+    <td rowspan="2" valign="top" id="F2"><p><b>F2</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>7</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>3:25 to</b></p>
+    
+    <p><b>4:15</b></p></td>
+    <td rowspan="2" valign="top" id="E4"><p><b>E4</b></p></td>
+    <td rowspan="2" valign="top" ><p><b>7</b></p></td>
+    <td rowspan="2" valign="top" > <p><b>3:25 to</b></p>
+    
+    <p><b>4:15</b></p></td>
+    <td rowspan="2" valign="top" id="E5"><p><b>E5</b></p></td>
+    
+    </tr>
+    
+    <tr>
+    <td valign="top" > </td>
+    <td valign="top" ><p><b>3:40 -</b></p>
+    
+    <p><b>4:20</b></p></td>
+    <td valign="top" ><p><b>Meeting</b></p></td>
+    
+    </tr>
+    
+    </tbody>
+    </table>
+    
+    
+    
+    <table id="calendar2" > 
+	<tbody>
+	<tr>
+	<td rowspan="1" valign="top" > <p><b>EVENING</b></p></td>
+	</tr>
+	<tr>
+	<td valign="top" > </td>
+	<td colspan="2" valign="top" ><p><b>MONDAY</b></p></td>
+	<td valign="top" > </td>
+	<td colspan="2" valign="top" ><p><b>TUESDAY</b></p></td>
+	<td valign="top" > </td>
+	<td colspan="2" valign="top" ><p><b>WEDNESDAY</b></p></td>
+	<td valign="top" > </td>
+	<td colspan="2" valign="top" ><p><b>THURSDAY</b></p></td>
+	<td rowspan="4" valign="top" > </td>
+	</tr>
+
+	<tr>
+	<td valign="top" > <p><b>8</b></p></td>
+	<td valign="top" > <p><b>6:15 to 7:55</b></p></td>
+	<td valign="top" id="H1"> <p><b>H1</b></p></td>
+	<td valign="top" > <p><b>8</b></p></td>
+	<td valign="top" > <p><b>6:15 to 7:55</b></p></td>
+	<td valign="top" id="H2"> <p></p><b>H2</b></p></td>
+	<td valign="top" > <p><b>8</b></p></td>
+	<td valign="top" > <p><b>6:15 to 7:55</b></p></td>
+	<td valign="top" id="H3"> <p><b>H3</b></p></td>
+	<td valign="top" > <p><b>8</b></p></td>
+	<td valign="top" > <p><b>6:15 to 7:55</b></p></td>
+	<td valign="top" id="H4"> <p><b>H4</b></p></td>
+	</tr>
+
+	<tr>
+	    <td></td>
+	<td valign="top" ><p><b>8:00 to 8:30</b></p></td>
+	<td valign="top" ><p><b>on hall</b></p></td>
+	<td valign="top" > </td>
+	<td valign="top" ><p><b>8:00 to 8:30</b></p></td>
+	<td valign="top" ><p><b>on hall</b></p></td>
+	<td valign="top" > </td>
+	<td valign="top" ><p><b>8:00 to 8:30</b></p></td>
+	<td valign="top" ><p><b>on hall</b></p></td>
+	<td valign="top" > </td>
+	<td valign="top" ><p><b>8:00 to 8:30</b></p></td>
+	<td valign="top" ><p><b>on hall</b></p></td>
+	</tr>
+
+	<tr>
+	<td valign="top" > <p><b>9</b></p></td>
+	<td valign="top" > <p><b>8:35 to 10:05</b></p></td>
+	<td valign="top" id="I1"> <p><b>I1</b></p></td>
+	<td valign="top" > <p><b>9</b></p></td>
+	<td valign="top" > <p><b>8:35 to 10:05</b></p></td>
+	<td valign="top" id="I2"> <p><b>I2</b></p></td>
+	<td valign="top" > <p><b>9</b></p></td>
+	<td valign="top" > <p><b>8:35 to 10:05</b></p></td>
+	<td valign="top" id="I3"> <p><b>I3</b></p></td>
+	<td valign="top" > <p><b>9</b></p></td>
+	<td valign="top" > <p><b>8:35 to 10:05</b></p></td>
+	<td valign="top" id="I4"> <p><b>I4</b></p></td>
+	</tr>
+
+	</tbody>
+	</table>
+    
+    
+    </div> <!--end calendar wrap-->
+    
+    
+    
+    </div> <!--end main wrap-->
+    
+    
+    <div id="footer"><p style="font-size:14px">note: table cell sizes don't scale with time</p>Sayan Dutta</div>
+  </body>
+</html>
