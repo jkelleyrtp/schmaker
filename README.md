@@ -1,5 +1,5 @@
 # schmaker
-Schedule Maker for NCSSM 2016-17
+Schedule Maker for NCSSM 2016-17,
 working link @ [yandtt.com/schmaker](yandtt.com/schmaker)
 
 ## index.html
