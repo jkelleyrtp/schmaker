@@ -11,15 +11,15 @@ data for schedule times
 manage data in localStorage using values from entered courses
 
 COURSES array of objects with properties:
-  -name
-  -block
-  -one (Mon)
-  -two (Tue)
-  -three (Wed)
-  -four (Thu)
-  -five (Fri)
-  -lab (Block-dependent)
-  -color (for timetable)
+- name
+- block
+- one (Mon)
+- two (Tue)
+- three (Wed)
+- four (Thu)
+- five (Fri)
+- lab (Block-dependent)
+- color (for timetable)
 
 ## gcal.js
 manages calls to Google Calendar API
