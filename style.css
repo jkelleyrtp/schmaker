@@ -1,0 +1,56 @@
+/* sizes */
+#main-wrap > div { 
+    min-height: 450px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#header {
+    min-height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    padding: 5px;
+}
+#footer {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 40px;
+}
+
+/* layout */
+#main-wrap {
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+#calendar-wrap {
+    float: left;
+    width: 800px;
+}
+
+#content-wrap {
+    float: left;
+    padding: 15px;
+}
+
+#calendar1 {
+    font-size: 10px;
+}
+
+#calendar2 {
+    font-size: 10px;
+}
+
+#coursetable {
+    font-size: 12px;
+}
+
+table {
+    
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
