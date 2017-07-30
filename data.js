@@ -45,25 +45,25 @@ var date1 = { //dateTime date followed by # of times recurring for tri 1 periods
     3: '2017-08-16',
     4: '2017-08-17',
     5: '2017-08-18',
-    end: '20161028T000000Z'
+    end: '20171027T000000Z'
 }
 
 var date2 = { //dateTime date followed by # of times recurring for tri 2 periods in Google Event making
-    1: '2016-11-14',
-    2: '2016-11-08',
-    3: '2016-11-09',
-    4: '2016-11-10',
-    5: '2016-11-11',
-    end: '20170206T000000Z'
+    1: '2017-11-13',
+    2: '2017-11-07',
+    3: '2017-11-08',
+    4: '2017-11-09',
+    5: '2017-11-10',
+    end: '20180206T000000Z'
 }
 
 var date3 = { //dateTime date followed by # of times recurring for tri 2 periods in Google Event making
-    1: '2017-02-27',
-    2: '2017-02-28',
-    3: '2017-03-01',
-    4: '2017-03-02',
-    5: '2017-03-03',
-    end: '20170519T000000Z'
+    1: '2018-02-26',
+    2: '2018-02-27',
+    3: '2018-02-28',
+    4: '2018-03-01',
+    5: '2018-03-02',
+    end: '20180520T000000Z'
 }
 
 var holidays = //timeMin/timeMax when searching event instances i%2=0: min, i%2=1: max
