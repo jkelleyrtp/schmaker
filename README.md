@@ -1,6 +1,6 @@
 # schmaker
-Schedule Maker for NCSSM 2016-17,
-working link @ [yandtt.com/schmaker](http://yandtt.com/schmaker)
+Schedule Maker for NCSSM 2017-18,
+working link @ [jkelleyrtp.github.io/schmaker/](https://jkelleyrtp.github.io/schmaker/)
 
 ## index.html
 table for blank timetable
