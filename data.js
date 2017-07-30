@@ -54,16 +54,16 @@ var date2 = { //dateTime date followed by # of times recurring for tri 2 periods
     3: '2017-11-08',
     4: '2017-11-09',
     5: '2017-11-10',
-    end: '20170206T000000Z'
+    end: '20180206T000000Z'
 }
 
 var date3 = { //dateTime date followed by # of times recurring for tri 2 periods in Google Event making
-    1: '2017-02-26',
-    2: '2017-02-27',
-    3: '2017-02-28',
-    4: '2017-03-01',
-    5: '2017-03-02',
-    end: '20170520T000000Z'
+    1: '2018-02-26',
+    2: '2018-02-27',
+    3: '2018-02-28',
+    4: '2018-03-01',
+    5: '2018-03-02',
+    end: '20180520T000000Z'
 }
 
 var = //timeMin/timeMax when searching event instances i%2=0: min, i%2=1: max
