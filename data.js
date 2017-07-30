@@ -40,11 +40,11 @@ var endTime = {
 }
 
 var date1 = { //dateTime date followed by # of times recurring for tri 1 periods in Google Event making
-    1: '2016-08-22',
-    2: '2016-08-16',
-    3: '2016-08-17',
-    4: '2016-08-18',
-    5: '2016-08-19',
+    1: '2017-08-21',
+    2: '2017-08-15',
+    3: '2017-08-16',
+    4: '2017-08-17',
+    5: '2017-08-18',
     end: '20161028T000000Z'
 }
 
