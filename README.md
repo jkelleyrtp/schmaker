@@ -2,9 +2,9 @@
 Schedule Maker for NCSSM 2017-18,
 working link @ [jkelleyrtp.github.io/schmaker/](https://jkelleyrtp.github.io/schmaker/)
 
- - Created by Sayan Dutta
- - Migrated to GitHub by Jonathan Kelley
- - Updated by Mansi Sak
+ - Created by Sayan Dutta ('17)
+ - Migrated to GitHub by Jonathan Kelley ('18)
+ - Updated by Mansi Sak ('19)
 
 
 ## index.html
