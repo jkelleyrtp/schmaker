@@ -2,6 +2,11 @@
 Schedule Maker for NCSSM 2017-18,
 working link @ [jkelleyrtp.github.io/schmaker/](https://jkelleyrtp.github.io/schmaker/)
 
+Created by Sayan Dutta
+Migrated to GitHub by Jonathan Kelley
+Updated by Mansi Sak
+
+
 ## index.html
 table for blank timetable
 dynamic course adder
