@@ -1,5 +1,5 @@
 # schmaker
-Schedule Maker for NCSSM 2017-18,
+Schedule Maker for NCSSM 2018-19,
 working link @ [jkelleyrtp.github.io/schmaker/](https://jkelleyrtp.github.io/schmaker/)
 
  - Created by Sayan Dutta ('17)
