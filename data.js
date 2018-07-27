@@ -1,41 +1,41 @@
 var timeZoneOffset = '-05:00';
 
 var startTime = {
-    A1: 'T08:00:00', C2: 'T08:00:00', B3: 'T08:00:00', D4: 'T08:00:00', A5: 'T08:00:00', 
-    B1: 'T08:55:00', D2: 'T08:55:00', A3: 'T08:55:00', C4: 'T08:55:00', B5: 'T08:55:00', 
-    C1: 'T09:50:00', B2: 'T09:50:00', D3: 'T09:50:00', A4: 'T09:50:00', C5: 'T09:50:00', 
-    D1: 'T10:45:00', A2: 'T10:45:00', C3: 'T10:45:00', B4: 'T10:45:00', D5: 'T10:45:00', 
-                     AL: 'T10:45:00', CL: 'T10:45:00', BL: 'T10:45:00', DL: 'T10:45:00', 
-                     EL: 'T12:55:00', G3: 'T12:55:00', FL: 'T12:55:00', GL: 'T12:55:00', 
-    E1: 'T13:25:00', 
-                     E2: 'T13:35:00',                  F4: 'T13:35:00', G5: 'T13:35:00', 
-                                      E3: 'T13:50:00', 
-    F1: 'T14:20:00', 
-                     G2: 'T14:30:00',                  G4: 'T14:30:00', F5: 'T14:30:00', 
-                                      F3: 'T14:45:00', 
-    G1: 'T15:15:00', 
-                     F2: 'T15:25:00',                  E4: 'T15:25:00', E5: 'T15:25:00', 
-                     
-    H1: 'T18:15:00', H2: 'T18:15:00', H3: 'T18:15:00', H4: 'T18:15:00', 
+    A1: 'T08:00:00', C2: 'T08:00:00', B3: 'T08:00:00', D4: 'T08:00:00', A5: 'T08:00:00',
+    B1: 'T08:55:00', D2: 'T08:55:00', A3: 'T08:55:00', C4: 'T08:55:00', B5: 'T08:55:00',
+    C1: 'T09:50:00', B2: 'T09:50:00', D3: 'T09:50:00', A4: 'T09:50:00', C5: 'T09:50:00',
+    D1: 'T10:45:00', A2: 'T10:45:00', C3: 'T10:45:00', B4: 'T10:45:00', D5: 'T10:45:00',
+                     AL: 'T10:45:00', CL: 'T10:45:00', BL: 'T10:45:00', DL: 'T10:45:00',
+                     EL: 'T12:55:00', G3: 'T12:55:00', FL: 'T12:55:00', GL: 'T12:55:00',
+    E1: 'T13:25:00',
+                     E2: 'T13:35:00',                  F4: 'T13:35:00', G5: 'T13:35:00',
+                                      E3: 'T13:50:00',
+    F1: 'T14:20:00',
+                     G2: 'T14:30:00',                  G4: 'T14:30:00', F5: 'T14:30:00',
+                                      F3: 'T14:45:00',
+    G1: 'T15:15:00',
+                     F2: 'T15:25:00',                  E4: 'T15:25:00', E5: 'T15:25:00',
+
+    H1: 'T18:15:00', H2: 'T18:15:00', H3: 'T18:15:00', H4: 'T18:15:00',
     I1: 'T20:35:00', I2: 'T20:35:00', I3: 'T20:35:00', I4: 'T20:35:00'
 }
 var endTime = {
-    A1: 'T08:50:00', C2: 'T08:50:00', B3: 'T08:50:00', D4: 'T08:50:00', A5: 'T08:50:00', 
-    B1: 'T09:45:00', D2: 'T09:45:00', A3: 'T09:45:00', C4: 'T09:45:00', B5: 'T09:45:00', 
-    C1: 'T10:40:00', B2: 'T10:40:00', D3: 'T10:40:00', A4: 'T10:40:00', C5: 'T10:40:00', 
-    D1: 'T11:35:00', A2: 'T11:35:00', C3: 'T11:35:00', B4: 'T11:35:00', D5: 'T11:35:00', 
-                     AL: 'T12:15:00', CL: 'T12:15:00', BL: 'T12:15:00', DL: 'T12:15:00', 
-                     EL: 'T14:25:00', G3: 'T13:45:00', FL: 'T14:25:00', GL: 'T14:25:00', 
-    E1: 'T14:15:00', 
-                     E2: 'T14:25:00',                  F4: 'T14:25:00', G5: 'T14:25:00', 
-                                      E3: 'T14:40:00', 
-    F1: 'T15:10:00', 
-                     G2: 'T15:20:00',                  G4: 'T15:20:00', F5: 'T15:20:00', 
-                                      F3: 'T15:35:00', 
-    G1: 'T16:05:00', 
-                     F2: 'T16:15:00',                  E4: 'T16:15:00', E5: 'T16:15:00', 
-                     
-    H1: 'T19:55:00', H2: 'T19:55:00', H3: 'T19:55:00', H4: 'T19:55:00', 
+    A1: 'T08:50:00', C2: 'T08:50:00', B3: 'T08:50:00', D4: 'T08:50:00', A5: 'T08:50:00',
+    B1: 'T09:45:00', D2: 'T09:45:00', A3: 'T09:45:00', C4: 'T09:45:00', B5: 'T09:45:00',
+    C1: 'T10:40:00', B2: 'T10:40:00', D3: 'T10:40:00', A4: 'T10:40:00', C5: 'T10:40:00',
+    D1: 'T11:35:00', A2: 'T11:35:00', C3: 'T11:35:00', B4: 'T11:35:00', D5: 'T11:35:00',
+                     AL: 'T12:15:00', CL: 'T12:15:00', BL: 'T12:15:00', DL: 'T12:15:00',
+                     EL: 'T14:25:00', G3: 'T13:45:00', FL: 'T14:25:00', GL: 'T14:25:00',
+    E1: 'T14:15:00',
+                     E2: 'T14:25:00',                  F4: 'T14:25:00', G5: 'T14:25:00',
+                                      E3: 'T14:40:00',
+    F1: 'T15:10:00',
+                     G2: 'T15:20:00',                  G4: 'T15:20:00', F5: 'T15:20:00',
+                                      F3: 'T15:35:00',
+    G1: 'T16:05:00',
+                     F2: 'T16:15:00',                  E4: 'T16:15:00', E5: 'T16:15:00',
+
+    H1: 'T19:55:00', H2: 'T19:55:00', H3: 'T19:55:00', H4: 'T19:55:00',
     I1: 'T22:05:00', I2: 'T22:05:00', I3: 'T22:05:00', I4: 'T22:05:00'
 }
 
@@ -67,16 +67,17 @@ var date3 = { //dateTime date followed by # of times recurring for tri 2 periods
 }
 
 var holidays = //timeMin/timeMax when searching event instances i%2=0: min, i%2=1: max
-    ['2017-09-04T00:00:00', '2017-09-05T00:00:00', //labor day extended 1
-     '2017-09-30T00:00:00', '2017-10-03T00:00:00', // 2nd extended       
-    '2017-11-17T00:00:00', '2017-11-27T00:00:00', // thanksgiving break
-    '2017-12-19T00:00:00', '2018-01-03T00:00:00', // winter break         
-    '2018-01-15T00:00:00', '2018-01-16T00:00:00', // Martin luther kingjr     
-    '2018-01-25T00:00:00', '2018-01-27T00:00:00', // spring extended
-    '2018-02-09T00:00:00', '2018-02-23T00:00:00',
-    '2018-02-23T00:00:00', '2018-02-24T00:00:00',          // Trimester break + miniterm          
-    '2018-04-01T00:00:00', '2018-04-09T00:00:00', // spring break
-    '2018-05-04T00:00:00', '2018-05-08T00:00:00' // final extended
+    ['2018-08-31T00:00:00', '2018-09-03T00:00:00', //labor day extended 1
+     '2018-09-28T00:00:00', '2018-10-01T00:00:00', // 2nd extended
+     '2018-10-29T00:00:00', '2018-11-06T00:00:00',  //tri 1 exam + tri 1 break
+    '2018-11-16T00:00:00', '2018-11-25T00:00:00', // thanksgiving break
+    '2018-12-21T00:00:00', '2019-01-06T00:00:00', // winter break
+    '2019-01-21T00:00:00', '2019-01-22T00:00:00', // Martin luther kingjr
+    '2019-01-24T00:00:00', '2019-01-27T00:00:00', // extended
+    '2019-02-11T00:00:00', '2019-03-01T00:00:00', // tri 2 exams + tri break + miniterm
+    '2019-03-22T00:00:00', '2019-03-25T00:00:00',          // extended
+    '2019-04-18T00:00:00', '2019-04-28T00:00:00', // spring break
+    '2019-05-20T00:00:00', '2019-05-22T00:00:00' // tri 3 exams
     ];
 
 
@@ -106,7 +107,7 @@ var COURSES = [];
 
 function pushCourse() {
     //var ncourse = zcourse;
-    
+
     var l = COURSES.length - 1;
     if (l > -1) {
         COURSES.push( {
@@ -142,14 +143,14 @@ var newCourse = function() {
         //this.reset();
     });
     //console.log("newCourse");
-    
+
     updateNames();
     updateBlocks();
     updatePds();
     updateColors();
     updateCalColors();
     updateCourses();
-    
+
     return false;
 }
 
@@ -161,14 +162,14 @@ var rmCourse = function(elem) {
         $(elem).parent().parent().remove();
     }
     //console.log("rmCourse");
-    
+
     updateNames();
     updateBlocks();
     updatePds();
     updateColors();
     updateCalColors();
     updateCourses();
-    
+
     return false;
 }
 
@@ -183,7 +184,7 @@ var clearCourse = function() {
     pushCourse();
     localStorage.clear();
     updateForm();
-    
+
     var bs = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
     var ps = ["1", "2", "3", "4", "5", "L"];
     for (var i=0; i<bs.length; i++) {
@@ -197,7 +198,7 @@ var clearCourse = function() {
 }
 
 $(document).ready(function() {
-    
+
     $(".addCourse").click( function() {
         newCourse();
     });
@@ -221,7 +222,7 @@ $(document).ready(function() {
             var cs = $('.color');
             console.log("length: " + length);
             /*while (names[length] == undefined) {
-                
+
             }*/
             /*console.log("names: ")
             for (var i=0; i<names.length; i++) {
@@ -239,20 +240,20 @@ $(document).ready(function() {
                     var pds = $('.pd');
                     var cs = $('.color');
                 }
-                
+
                 console.log("c: " + c);
                 //console.log("names[c].value: " + names[c].value);
                 //console.log("COURSES[c].name: " + COURSES[c].name);
                 names[c].value = (COURSES[c].name);
                 blocks[c].value = (COURSES[c].block);
-                
+
                 (COURSES[c].one) ? pds[c * 6 + 0].checked = true : pds[c * 6 + 0].checked = false;
                 (COURSES[c].two) ? pds[c * 6 + 1].checked = true : pds[c * 6 + 1].checked = false;
                 (COURSES[c].three) ? pds[c * 6 + 2].checked = true : pds[c * 6 + 2].checked = false;
                 (COURSES[c].four) ? pds[c * 6 + 3].checked = true : pds[c * 6 + 3].checked = false;
                 (COURSES[c].five) ? pds[c * 6 + 4].checked = true : pds[c * 6 + 4].checked = false;
                 (COURSES[c].lab) ? pds[c * 6 + 5].checked = true : pds[c * 6 + 5].checked = false;
-                
+
                 cs[c].value = COURSES[c].color;
             }
             updateCourses();
@@ -267,25 +268,25 @@ $(document).ready(function() {
 
 var updateForm = function() {
     var c = 0;
-    
+
     var names = $('.name');
     var blocks = $('.block');
     var pds = $('.pd');
     var cs = $('.color');
     var tri = $('.trimester');
-    
+
     names[c].value = (COURSES[c].name);
     blocks[c].value = (COURSES[c].block);
-    
+
     (COURSES[c].one) ? pds[c * 6 + 0].checked = true : pds[c * 6 + 0].checked = false;
     (COURSES[c].two) ? pds[c * 6 + 1].checked = true : pds[c * 6 + 1].checked = false;
     (COURSES[c].three) ? pds[c * 6 + 2].checked = true : pds[c * 6 + 2].checked = false;
     (COURSES[c].four) ? pds[c * 6 + 3].checked = true : pds[c * 6 + 3].checked = false;
     (COURSES[c].five) ? pds[c * 6 + 4].checked = true : pds[c * 6 + 4].checked = false;
     (COURSES[c].lab) ? pds[c * 6 + 5].checked = true : pds[c * 6 + 5].checked = false;
-    
+
     cs[c].value = COURSES[c].color;
-    
+
     tri[0].value = '1';
 }
 
@@ -298,7 +299,7 @@ var updateCourses = function() {
 var updateNames = function() {
     $('.name').each(function(i) {
         var elem = $(this);
-        
+
         elem.bind("propertychange change click keyup input paste", function(event) {
             // Do action
             while(COURSES[i] == undefined) {pushCourse();}
@@ -314,7 +315,7 @@ var updateNames = function() {
 var updateBlocks = function() {
     $('.block').each(function(i) {
         var elem = $(this);
-        
+
         elem.bind("propertychange change click keyup input paste", function(event) {
             // Do action
             while(COURSES[i] == undefined) {pushCourse();}
@@ -331,7 +332,7 @@ var updateBlocks = function() {
 var updatePds = function() {
     $('.pd').each(function(i) {
         var elem = $(this);
-        
+
         elem.on("change", function() {
             // Do action
             index = Math.floor(i/6);
@@ -363,7 +364,7 @@ var updatePds = function() {
 var updateColors = function() {
     $('.color').each(function(i) {
         var elem = $(this);
-        
+
         elem.bind("propertychange change click keyup input paste", function(event) {
             // Do action
             while(COURSES[i] == undefined) {pushCourse();}
@@ -388,7 +389,7 @@ var updateCalColors = function() {
             }
         }
     }
-    
+
     for (var i=0; i<COURSES.length; i++) {
         var block = COURSES[i].block;
         if (COURSES[i].one) {
